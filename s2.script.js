@@ -12,7 +12,7 @@ function yyyymmddhhmise() {
     var answer = yyyy + mm + dd + "-" + hh + mm + se ;
     return (answer);
   }
-var filename = "numakura-s2-" + yyyymmddhhmise() + ".csv" ;
+var filename = "takatama-s2-" + yyyymmddhhmise() + ".csv" ;
 // 
 
 var jsPsych = initJsPsych({
@@ -34,7 +34,7 @@ var exit_fullscreen = {
 // 凝視点
 var eyepoint = {
   type: jsPsychHtmlKeyboardResponse,
-  stimulus: '<p style="font-size: 48px;">+</p>',
+  stimulus: '<p style="font-size: 54px;">+</p>',
   choices: jsPsych.NO_KEYS,
   trial_duration: 1500,
 };
@@ -43,7 +43,7 @@ var blankscreen = {
   type: jsPsychHtmlKeyboardResponse,
   stimulus: '',
   choices: jsPsych.NO_KEYS,
-  trial_duration: 2000,
+  trial_duration: 500,
 };
 
 // ------------------------------------------------------------------------
@@ -52,19 +52,19 @@ var blankscreen = {
 
 var enter_fullscreen = {
   type: jsPsychFullscreen,
-  message: '<p>実験名: 2022-沼倉-セッション2</p><p>開始ボタンを押すと全画面表示で実験が始まります。</p>',
+  message: '<p>実験名: 2022-高玉-セッション2</p><p>開始ボタンを押すと全画面表示で実験が始まります。</p>',
   button_label: "開始",
   fullscreen_mode: true
 }
 
 var instruction_p1 = {
   type: jsPsychHtmlButtonResponse,
-  stimulus: '<div align="left"><font size=6>\
-常磐大学人間科学部心理学科4年・渡辺ゼミナール所属の沼倉 日菜子と申します。<br><br>\
-本日は実験にご協力いただき，誠にありがとうございます。<br><br>\
-私は現在，「文字が与える印象及び認知に及ぼす影響」をテーマに卒業研究に取り組んでいます。<br><br>\
-今回，本研究を行うにあたり，「文字が与える印象」，「文字が認知に及ぼす影響」の二点について調査したく，事前に実験協力に同意いただきました皆様を対象に実験を行います。<br><br>\
-本研究への回答は任意であり，回答の有無により皆様に利益・不利益が生じることはありません。得られたデータは厳重な管理の下で本研究のみに使用され，研究終了後に適切に処分します。また，データは統計的な処理を行うため，個人が特定されることはございません。<br><br>\
+  stimulus: '<div align="left"><font size=5>\
+2セッション目では、覚えてもらった単語のうち、無作為に選ばれた20単語と、覚えてもらっていない20単語が一単語ずつ表示されますので、先程覚えた単語だと思ったら、キーボードの「J」を、先程出てこなかった単語だと思ったら「K」を押してください。<br><br>\
+あまり時間をかけず、押して頂いて大丈夫です。<br><br>\
+実験で得られた回答及び、年齢、性別に関しては、厳重な管理のもとで、直ちに記号化され、統計的に処理されるため、個人が特定されることはありませんので、安心してお答えください。<br><br>\
+実験中、質問や画面に不都合が生じたり、体調がすぐれない場合は、隣室にいる実験者をお呼びください。<br><br>\
+それではまず、練習に移ります。「次へ」を押すと練習が始まります。練習ですので、キーはどちらを押しても構いません。<br><br>\
 <br></font></div>\
 ',
 choices: ['次へ'],
@@ -72,43 +72,32 @@ choices: ['次へ'],
 
 var instruction_p2 = {
   type: jsPsychHtmlButtonResponse,
-  stimulus: '<div align="left"><font size=6>\
-本実験は「文字が与える印象」，「文字が認知に及ぼす影響」についての2セッション構成で，本日は「文字が認知に及ぼす影響」の実験です。今回は2種類の実験を行います。<br><br>\
-注視点が表示され，その後で呈示された語に対して，前回の実験で呈示された語であると思えば「j」，呈示されていなかった語であると思えば「k」を選んでください。<br><br>\
-練習として3問行った後，本番として20問行います。<br><br>\
-その後，二つ目の実験を行います。<br><br>\
-正しい答えや間違った答えというものはありませんので，他者と相談することなく，思った通りにお答えください。また，実験の途中で体調が悪くなった方は，実験を中断していただいて構いません。<br><br>\
+  stimulus: '<div align="left"><font size=5>\
+練習はこれにて終了です。「次へ」を押すと本番に移ります。<br>\
+準備ができましたら、「次へ」を押してください。<br>\
 <br></font></div>\
 ',
-choices: ['練習を始める'],
+choices: ['次へ'],
 } ;
 
 var instruction_p3 = {
   type: jsPsychHtmlButtonResponse,
-  stimulus: '<div align="left"><font size=6>\
-練習<br>\
-<br></font></div>\
+  stimulus: '<div align="left"><font size=5>\
+これで実験は終了です。実験にご協力いただき、本当にありがとうございました。精油を嗅いだ人は、使用した精油への簡単な質問紙に答えていただきます。<br>\
+実験者が質問紙をお渡しいたしますので、この画面が出ましたら、お呼びください。<br>\
+精油を使用しなかった人も、この画面が出ましたらお呼びください。<br>\
 ',
-choices: ['次へ'],
-} ;
-
-var instruction_p4 = {
-  type: jsPsychHtmlButtonResponse,
-  stimulus: '<div align="left"><font size=6>\
-以上で練習は終了です。  <br><br>\
-3つの質問にお答えいただいた後，本番が始まります。<br><br>\
-<br></font></div>\
-',
-choices: ['次へ'],
+choices: ['終了'],
 } ;
 
 // 被検者情報の入力
+// 本番時は入力必須に
 var par_id = {
   type: jsPsychSurveyText,
   questions: [
-    {prompt: '参加者ID（例　A1，B2）を入力してください。', columns: 10, required: true, name: 'id'},
-    {prompt: '性別（1：男性，2：女性，3：回答しない）を入力してください。', columns: 10, required: true, name: 'sex'},
-    {prompt: '年齢（半角数字のみ）を入力してください', columns: 10, required: true, name: 'age'},
+    {prompt: '参加者ID（例　A1，B2）を入力してください。', columns: 10, required: false, name: 'id'},
+    {prompt: '性別（1：男性，2：女性，3：回答しない）を入力してください。', columns: 10, required: false, name: 'sex'},
+    {prompt: '年齢（半角数字のみ）を入力してください', columns: 10, required: false, name: 'age'},
   ],
   button_label: '実験の開始',
 };
@@ -136,9 +125,9 @@ choices: ['終了'],
 // group:'k' = 間違え
 
 var pre_examSession2 = [
-  { label: 'サツキ'   , group:'j' },
-  { label: 'スミレ'   , group:'k' },
-  { label: 'レモン'   , group:'j' },
+  { label: '漢字'   , group:'j' },
+  { label: '夏目'   , group:'k' },
+  { label: '歌詞'   , group:'j' },
 ];
 
 // 順番をランダマイズしたいので指定しておく
@@ -151,7 +140,7 @@ var pre_trials = {
 // 問題の本体
 var pre_exam = {
     type: jsPsychHtmlKeyboardResponse,
-    stimulus: function () {return "<p style='font-size: 48px;'>" + jsPsych.timelineVariable('label') + "</p>"; },
+    stimulus: function () {return "<p style='font-size: 60px;'>" + jsPsych.timelineVariable('label') + "</p>"; },
     choices: ["j","k"],
     data: {
       label: jsPsych.timelineVariable('label'),
@@ -209,7 +198,7 @@ function checkresponse(response,correct)
 // 問題の本体
 var exam = {
     type: jsPsychHtmlKeyboardResponse,
-    stimulus: function () {return "<p style='font-size: 48px;'>" + jsPsych.timelineVariable('label') + "</p>"; },
+    stimulus: function () {return "<p style='font-size: 60px;'>" + jsPsych.timelineVariable('label') + "</p>"; },
     choices: ["j","k"],
     data: {
       label: jsPsych.timelineVariable('label'),
@@ -229,4 +218,4 @@ trials.timeline.push(blankscreen) ;
 // 実験の開始
 // ------------------------------------------------------------------------
 
-jsPsych.run([enter_fullscreen,  instruction_p1,instruction_p2,pre_trials, instruction_p4,par_id,trials,bye,exit_fullscreen]);
+jsPsych.run([enter_fullscreen,instruction_p1,pre_trials, instruction_p2,par_id,trials,instruction_p3,exit_fullscreen]);
