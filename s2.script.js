@@ -158,31 +158,90 @@ pre_trials.timeline.push(blankscreen) ;
 // ------------------------------------------------------------------------
 // 本番用問題の作成
 // ------------------------------------------------------------------------
-
-var examSession2 = [
-  { label: 'アクマ'   , group:'j' },
-  { label: 'キアツ'   , group:'j' },
-  { label: 'クサリ'   , group:'k' },
-  { label: 'コテン'   , group:'k' },
-  { label: 'センイ'   , group:'j' },
-  { label: 'テント'   , group:'k' },
+var examSession1 = [ // session1で出てきた単語
+  { label: 'イフク'   , group:'j' },
   { label: 'ハクイ'   , group:'j' },
-  { label: 'ヒトミ'   , group:'k' },
-  { label: 'マツリ'   , group:'k' },
-  { label: 'ユカタ'   , group:'j' },
-  { label: 'インク'   , group:'k' },
-  { label: 'カラス'   , group:'j' },
-  { label: 'キモノ'   , group:'k' },
-  { label: 'コイン'   , group:'j' },
-  { label: 'サユウ'   , group:'k' },
-  { label: 'スルメ'   , group:'j' },
-  { label: 'タヌキ'   , group:'j' },
-  { label: 'ハカセ'   , group:'k' },
-  { label: 'メマイ'   , group:'j' },
-  { label: 'ユノミ'   , group:'k' },
+  { label: 'ワフク'   , group:'j' },
+  { label: 'タイツ'   , group:'j' },
+  { label: 'エホン'   , group:'j' },
+  { label: 'キンコ'   , group:'j' },
+  { label: 'ウチワ'   , group:'j' },
+  { label: 'カイロ'   , group:'j' },
+  { label: 'ノレン'   , group:'j' },
+  { label: 'クサリ'   , group:'j' },
+  { label: 'カキネ'   , group:'j' },
+  { label: 'ワシツ'   , group:'j' },
+  { label: 'ウツワ'   , group:'j' },
+  { label: 'カタナ'   , group:'j' },
+  { label: 'エレキ'   , group:'j' },
+  { label: 'ナマリ'   , group:'j' },
+  { label: 'ミリン'   , group:'j' },
+  { label: 'アンコ'   , group:'j' },
+  { label: 'チクワ'   , group:'j' },
+  { label: 'ツマミ'   , group:'j' },
+  { label: 'セロリ'   , group:'j' },
+  { label: 'スミレ'   , group:'j' },
+  { label: 'ウエキ'   , group:'j' },
+  { label: 'ハヤシ'   , group:'j' },
+  { label: 'アヒル'   , group:'j' },
+  { label: 'ヒヨコ'   , group:'j' },
+  { label: 'アサリ'   , group:'j' },
+  { label: 'ヒラメ'   , group:'j' },
+  { label: 'ホタル'   , group:'j' },
+  { label: 'イルカ'   , group:'j' },
+  { label: 'キリン'   , group:'j' },
+  { label: 'マムシ'   , group:'j' },
+  { label: 'ユソウ'   , group:'j' },
+  { label: 'シヘイ'   , group:'j' },
+  { label: 'フクヤ'   , group:'j' },
+  { label: 'タウエ'   , group:'j' },
+  { label: 'シマイ'   , group:'j' },
+  { label: 'ヒタイ'   , group:'j' },
+  { label: 'ユウヒ'   , group:'j' },
+  { label: 'カラテ'   , group:'j' },
 ];
 
-// 順番をランダマイズしたいので指定しておく
+var examSession2 = [ // session1では出てこなかった単語
+  { label: 'カツラ'   , group:'k' },
+  { label: 'コロモ'   , group:'k' },
+  { label: 'ユカタ'   , group:'k' },
+  { label: 'カルタ'   , group:'k' },
+  { label: 'コケシ'   , group:'k' },
+  { label: 'ミシン'   , group:'k' },
+  { label: 'オタマ'   , group:'k' },
+  { label: 'コヨミ'   , group:'k' },
+  { label: 'コンロ'   , group:'k' },
+  { label: 'ハカリ'   , group:'k' },
+  { label: 'インキ'   , group:'k' },
+  { label: 'シオリ'   , group:'k' },
+  { label: 'アキチ'   , group:'k' },
+  { label: 'カシヤ'   , group:'k' },
+  { label: 'タイル'   , group:'k' },
+  { label: 'スマイ'   , group:'k' },
+  { label: 'ロウヤ'   , group:'k' },
+  { label: 'ヨウキ'   , group:'k' },
+  { label: 'タイコ'   , group:'k' },
+  { label: 'シロミ'   , group:'k' },
+];
+
+// session1で出た単語の順番をランダマイズしてsequence[]に
+var sequence = [] ;
+for (let i = 0; i< examSession1.length; i++) {
+  sequence[i] = i ;
+}
+for (let i = 0; i< examSession1.length; i++) {
+  target           =  Math.floor(Math.random() * examSession1.length) ;
+  tmpseq           = sequence[i] ;
+  sequence[i]      = sequence[target] ;
+  sequence[target] = tmpseq
+}
+
+// session2の単語セットにsession1の単語セット20を追加
+for (let i = 0; i< 20; i++) {
+  examSession2.push(examSession1[sequence[i]]) ;
+}
+
+// session2の順番をランダマイズしたいので指定しておく
 var trials = {
   timeline: [],
   timeline_variables: examSession2,
