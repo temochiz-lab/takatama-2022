@@ -71,10 +71,10 @@ choices: ['次へ'],
 
 var instruction_p2 = {
   type: jsPsychHtmlButtonResponse,
-  stimulus: '<div align="left">\
-ここから本番です。\
+  stimulus: '<div align="left"><font size=5>\
+このような速さで単語が表示されます。「次へ」を押すと本番が始まります。準備ができましたら「次へ」を押してください。\
 <br><br>\
-<br></div>\
+<br></font></div>\
 ',
 choices: ['次へ'],
 } ;
